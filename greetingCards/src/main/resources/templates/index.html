@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Templates Home</title>
+</head>
+<body>
+	<div class="container-fluid" style="margin-top: 20px">
+		<div class="row">
+			<div class="panel-body">
+				<table class="table table-hover">
+					<thead class="thead-inverse">
+						<tr>
+							<th>ID</th>
+							<th>Text</th>
+						</tr>
+					</thead>
+					<tr th:each="template : ${templates}">
+					<td th:text="${template.id}">1</td>
+					<td th:text="${template.text}">Template text</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
