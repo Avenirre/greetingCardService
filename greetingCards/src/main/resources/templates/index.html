@@ -3,23 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <title>Templates Home</title>
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}" />
 </head>
 <body>
-	<div class="container-fluid" style="margin-top: 20px">
+	<div class="container-fluid" style="margin-top: 20px; margin-left: 25%">
 		<div class="row">
-			<div class="panel-body">
-				<table class="table table-hover">
-					<thead class="thead-inverse">
-						<tr>
-							<th>ID</th>
-							<th>Text</th>
-						</tr>
-					</thead>
-					<tr th:each="template : ${templates}">
-					<td th:text="${template.id}">1</td>
-					<td th:text="${template.text}">Template text</td>
-					</tr>
-				</table>
+			<div class="col-md-6 col-md-offset-3">
+				<div class="card">
+					<div class="card-header bg-primary">
+						<h1 class="card-title text-white text-center">Templates List</h1>
+					</div>
+					<div class="card-block">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Event</th>
+									<th>Text</th>
+								</tr>
+							</thead>
+							<tr th:each="template : ${templates}">
+								<td th:text="${template.id}">1</td>
+								<td th:text="${template.event}">Event</td>
+								<td th:text="${template.text}">Template text</td>
+								<td><a href="#" th:href="@{${template.id} + '/update'}">Update</a></td>
+								<td><a href="#" th:href="@{${template.id} + '/createCard'}">Create card</a></td>
+							</tr>
+						</table>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -11,5 +11,6 @@ import lombok.NoArgsConstructor;
 public class Template {
 	
 	Long id;
+	String event;
 	String text;
 }
