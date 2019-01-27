@@ -19,16 +19,19 @@ public class TemplateService {
 		this.templates = templates;
 	}
 
-	public Set<Template> getCatalog() {
-		Set<Template> result = new LinkedHashSet<>();
+	public List<Template> getCatalog() {
+		List<Template> result = new ArrayList<>();
 		templates.findAll().iterator().forEachRemaining(result::add);
+		Collections.sort(result,(Template t1, Template t2) ->{
+	        return t1.getId().compareToIgnoreCase(t2.getId());
+	});
 		return result;
 	}
 	
     public TemplateDto findTemplateById(String id) {
         Optional<Template> templateOptional = templates.findById(id);
         if (!templateOptional.isPresent()) {
-            throw new NotFoundException("Template Not Found. For ID value: " + id.toString() );
+            throw new NotFoundException("Template Not Found. For ID value: " + id);
         }
         return new TemplateDto(templateOptional.get());
     }
@@ -37,5 +40,6 @@ public class TemplateService {
     public void updateAndSaveTemplate(TemplateDto templateDto) {
         Template changingTemplate = templates.findById(templateDto.getId()).get();
         changingTemplate.setText(templateDto.getText());
+        templates.save(changingTemplate);
     }
 }
