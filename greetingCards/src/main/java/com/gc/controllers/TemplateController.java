@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gc.model.TemplateDto;
@@ -33,7 +33,7 @@ public class TemplateController {
         return "templateform";
     }
     
-    @PostMapping("template/{id}/update")
+    @PutMapping("template/{id}/update")
     public String saveTemplate(@ModelAttribute("template") TemplateDto template, @PathVariable String id){
         templateService.updateAndSaveTemplate(template);
         return "redirect:/greetingcards/catalog";

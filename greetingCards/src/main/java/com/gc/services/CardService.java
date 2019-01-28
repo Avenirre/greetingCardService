@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.gc.model.Card;
+import com.gc.model.CardDto;
 import com.gc.repositories.CardRepository;
 
 @Service
@@ -17,7 +18,8 @@ public class CardService {
 		this.cards = cards;
 	}
 	
-	public void saveCard(Card card) {
+	public void saveCard(CardDto cardDto) {
+		Card card = new Card(cardDto);
 		cards.save(card);
 	}
 
