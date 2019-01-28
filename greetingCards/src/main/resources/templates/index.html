@@ -4,7 +4,11 @@
 <meta charset="UTF-8">
 <title>Templates Home</title>
 <link href="../static/css/bootstrap.css" rel="stylesheet"
-	th:href="@{/css/bootstrap.css}"/>
+	th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
 </head>
 <body>
 	<div class="container-fluid" style="margin-top: 20px; margin-left: 25%">
@@ -27,8 +31,11 @@
 								<td th:text="${template.id}">1</td>
 								<td th:text="${template.event}">Event</td>
 								<td th:text="${template.text}">Template text</td>
-								<td><a href="#" th:href="@{'template/' + ${template.id} + '/update'}">Update</a></td>
-								<td><a href="#" th:href="@{'card/' + ${template.id} + '/create'}">Create card</a></td>
+								<td><a href="#"
+									th:href="@{'template/' + ${template.id} + '/update'}">Update</a></td>
+								<td><a href="#"
+									th:href="@{'card/' + ${template.id} + '/create'}">Create
+										card</a></td>
 							</tr>
 						</table>
 					</div>

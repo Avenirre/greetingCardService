@@ -5,19 +5,26 @@
 <title>Template Form</title>
 <link href="../static/css/bootstrap.css" rel="stylesheet"
 	th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
 </head>
 <body>
 	<div class="container-fluid" style="margin-top: 20px; margin-left: 25%">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
-				<form th:object="${template}" th:action="@{/greetingcards/template/{id}/update/(id=${template.id})}" th:method="put">
+				<form th:object="${template}"
+					th:action="@{/greetingcards/template/{id}/update/(id=${template.id})}"
+					th:method="put">
 					<div class="card">
-						<div class="card-header bg-primary">
-							<h1 class="card-title text-white text-center">Template Editing</h1>
+						<div class="card-header bg-secondary">
+							<h1 class="card-title text-white text-center">Template
+								Editing</h1>
 							<div class="col-md-12 form-group">
 								<textarea class="form-control" rows="15" th:field="*{text}"></textarea>
 							</div>
-						</div>						
+						</div>
 					</div>
 					<button type="submit" class="btn btn-success col-md-3">Edit</button>
 				</form>
