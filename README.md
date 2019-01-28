@@ -4,7 +4,7 @@ API:
 
 Show the templates catalog - http://localhost:8080/greetingcards/catalog
 
-Edit the template - http://localhost:8080/greetingcards/template/{id}/update
+Edit the template with id - http://localhost:8080/greetingcards/template/{id}/update
 
 Create the greeting card using the template with id - http://localhost:8080/greetingcards/card/{id}/create
 
